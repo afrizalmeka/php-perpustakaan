@@ -45,11 +45,11 @@ function initDatabase(PDO $pdo): void {
         $pdo->exec("INSERT INTO users (name, nim, email, password, role) VALUES ('Sari Pelajar', '21/123457/TK/02', 'sari@student.com', '$userPass', 'anggota')");
 
         $buku = [
-            ['Pemrograman Web PHP', 'Budi Raharjo', '978-1234567890', 'Informatika', 2022, 3, 'Pemrograman'],
-            ['Algoritma dan Pemrograman', 'Rinaldi Munir', '978-0987654321', 'Informatika', 2021, 2, 'Algoritma'],
-            ['Basis Data', 'Ramez Elmasri', '978-1122334455', 'Pearson', 2020, 2, 'Database'],
-            ['Jaringan Komputer', 'Andrew Tanenbaum', '978-5544332211', 'Pearson', 2019, 1, 'Jaringan'],
-            ['Kecerdasan Buatan', 'Stuart Russell', '978-6677889900', 'Pearson', 2020, 2, 'AI'],
+            ['Pemrograman Web PHP', 'Budi Raharjo', '978-1234567890', 'Informatika', 2022, 5, 'Pemrograman'],
+            ['Algoritma dan Pemrograman', 'Rinaldi Munir', '978-0987654321', 'Informatika', 2021, 5, 'Algoritma'],
+            ['Basis Data', 'Ramez Elmasri', '978-1122334455', 'Pearson', 2020, 5, 'Database'],
+            ['Jaringan Komputer', 'Andrew Tanenbaum', '978-5544332211', 'Pearson', 2019, 5, 'Jaringan'],
+            ['Kecerdasan Buatan', 'Stuart Russell', '978-6677889900', 'Pearson', 2020, 5, 'AI'],
         ];
         $stmt = $pdo->prepare("INSERT INTO buku (judul, pengarang, isbn, penerbit, tahun, stok, kategori) VALUES (?,?,?,?,?,?,?)");
         foreach ($buku as $b) $stmt->execute($b);

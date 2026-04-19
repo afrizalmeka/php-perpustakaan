@@ -16,8 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'kemba
     $stmt->execute([$id]);
     $p = $stmt->fetch();
     if ($p) {
-        // BUG 7: Denda tidak dihitung saat pengembalian — selalu disimpan 0
-        // bahkan jika buku terlambat dikembalikan
         $denda = 0;
         $pdo->beginTransaction();
         $pdo->prepare("UPDATE peminjaman SET status='dikembalikan', tanggal_kembali_aktual=?, denda=? WHERE id=?")

@@ -22,11 +22,8 @@ if (!$buku || $buku['stok'] < 1) {
     exit;
 }
 
-// BUG 3: Tidak mengecek apakah user sudah meminjam buku yang sama
-// sehingga user bisa meminjam buku yang sama lebih dari satu kali
 
 $today      = date('Y-m-d');
-// BUG 4: Masa pinjam hanya 3 hari (seharusnya 14 hari)
 $returnPlan = date('Y-m-d', strtotime('+3 days'));
 
 $pdo->beginTransaction();

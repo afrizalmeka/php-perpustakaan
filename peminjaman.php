@@ -34,12 +34,8 @@ include __DIR__ . '/php/header.php';
             <?php foreach ($peminjamanList as $p): ?>
             <?php
                 $isOverdue = $p['status'] === 'dipinjam' && $today > $p['tanggal_kembali_rencana'];
-                // BUG 5: Denda dihitung menggunakan pembagian 86400 tapi tanpa konversi
-                // yang benar — hasilnya selalu 0 karena integer division dari epoch selisih
-                // Seharusnya: (strtotime($today) - strtotime($rencana)) / 86400
                 $lateDays = $isOverdue ? intval((strtotime($today) - strtotime($p['tanggal_kembali_rencana'])) / 86400) : 0;
-                // BUG 6: Konstanta DENDA_PER_HARI tidak digunakan — denda selalu 0
-                $estimDenda = $lateDays * 0; // seharusnya $lateDays * DENDA_PER_HARI
+                $estimDenda = $lateDays * 0;
             ?>
             <tr>
                 <td><?= htmlspecialchars($p['judul']) ?></td>

@@ -8,7 +8,6 @@ require_once __DIR__ . '/php/auth.php';
 $pdo = getDB();
 $search = trim($_GET['search'] ?? '');
 
-// BUG 2: Pencarian hanya di kolom judul — tidak mencari berdasarkan pengarang
 // dan tidak menggunakan parameter binding yang benar untuk dua kolom
 $params = [];
 $whereClause = '';
