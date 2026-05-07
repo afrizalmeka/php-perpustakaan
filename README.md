@@ -15,9 +15,9 @@ Aplikasi manajemen perpustakaan berbasis PHP dan SQLite untuk keperluan pembelaj
 2. **Jalankan server PHP:**
    ```bash
    cd php-perpustakaan
-   php -S localhost:8003
+   php -S localhost:8002
    ```
-3. **Buka browser** dan akses `http://localhost:8003`
+3. **Buka browser** dan akses `http://localhost:8002`
 
 ## Akun Demo
 
